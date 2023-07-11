@@ -2,8 +2,18 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
+from django.shortcuts import render
+from django.shortcuts import render
+
 
 # Create your views here.
+
+def gallery_photo(request, photo):
+    context = {'photo': photo}
+    return render(request, 'testapp/gallery_photo.html', context)
+
+def gallery(request):
+    return render(request, 'testapp/gallery.html')
 
 def get_example(request):
     response = {'request': {'time': datetime.now().isoformat(),
